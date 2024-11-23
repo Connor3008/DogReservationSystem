@@ -30,8 +30,8 @@ Step-by-Step Instructions
 1. Clone the Repository
 First, clone this repository to your local machine:
 ```bash
-git clone https://github.com/yourusername/dog-kennel-management.git
-cd dog-kennel-management
+cd Desktop
+git clone https://github.com/Connor3008/DogReservationSystem.git
 ```
 
 2. Install Dependencies
