@@ -63,7 +63,7 @@ If you want to initialize your own fresh database:
 4. Start the Server
 Run the backend server using:
 ```bash
-node server.js
+node scripts/app.js
 ```
 You should see output like this:
 ```
