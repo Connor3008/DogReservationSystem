@@ -1,78 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('../images/cuteDogs.jpg') no-repeat center center fixed;
-    background-size: cover;
-    backdrop-filter: blur(5px);
-  }
+  font-family: 'Maven Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('../images/cuteDogs.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 
-  .container {
-    max-width: 600px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 20px 0; /* Increased padding for a taller navbar */
+  z-index: 1000;
+}
 
-  h2 {
-    text-align: center;
-    color: #333;
-  }
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
-  .form-group {
-    margin-bottom: 15px;
-  }
+.navbar li {
+  display: inline;
+  margin: 0 30px; /* Increased margin between links */
+}
 
-  .form-group label {
-    display: block;
-    font-weight: bold;
-  }
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Increased font size */
+  font-weight: bold; /* Bold text for emphasis */
+}
 
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
+.navbar a:hover {
+  color: #f4b400;
+}
 
-  #reservationsTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
+nav a#current{
+	color: orange;
+}
 
-  #reservationsTable th, #reservationsTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
+.logout-button {
+  position: absolute;
+  right: 20px; /* Space from the edge of the screen */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center in navbar */
+  background-color: #ff4d4d;
+  font-family: 'Maven pro', sans-serif;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-  #reservationsTable th {
-    background-color: #f4b400;
-    color: white;
-  }
+.logout-button:hover {
+  background-color: #ff3333;
+}
 
-  .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+/* Container for reservation form */
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 80px; /* Adjusted to match the larger navbar */
+  margin-right: 700px;
+}
 
-  .btn:hover {
-    background-color: #45a049;
-  }
+h2 {
+  text-align: center;
+  color: #333;
+}
 
-  .confirmation-display {
-    text-align: center;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-top: 10px;
-  }
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#reservationsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#reservationsTable th, #reservationsTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#reservationsTable th {
+  background-color: #f4b400;
+  color: white;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.confirmation-display {
+  text-align: center;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-top: 10px;
+}
+
