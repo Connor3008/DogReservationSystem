@@ -8,52 +8,74 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap');
     body {
-      font-family: 'Maven Pro', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      padding-top: 80px; /* Add padding to avoid the navbar covering content */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Full height */
-      background-image : url(../images/dogbackground.jpeg);
-    }
+  font-family: 'Maven Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  padding-top: 80px; /* Add padding to avoid the navbar covering content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height */
+  background-image: url(../images/dogbackground.jpeg);
+  background-size: cover; /* Ensures the background image covers the entire body */
+}
 
-    .container {
-      width: 80%; /* Width of the content */
-      max-width: 1200px; /* Maximum width */
-      text-align: center;
-      margin-top: -20%;
-    
-    }
+.container {
+  width: 80%; /* Width of the content */
+  max-width: 1200px; /* Maximum width */
+  text-align: center;
+  margin-top: -20%;
+}
 
-    /* Center table */
-    .content-table {
-      border-collapse: collapse;
-      margin: 25px 0;
-      font-size: 0.9em;
-      min-width: 400px;
-      border-radius: 5px 5px 0 0;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-      margin: 0 auto; /* Center the table */
-    }
+/* Center table */
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: 0 auto; /* Center the table */
+}
 
-    .content-table thead tr {
-      background-color: #009879;
-      color: #ffffff;
-      text-align: left;
-      font-weight: bold;
-    }
+/* Table header (keeps the original background color) */
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
 
-    .content-table th, .content-table td {
-      padding: 12px 15px;
-    }
+.content-table th, .content-table td {
+  padding: 12px 15px;
+}
 
-    .content-table tbody tr {
-      border-bottom: 1px solid #ddd;
-    }
+/* Table body */
+.content-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row background */
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* Row hover effect */
+.content-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Prevent table body cells from becoming transparent */
+.content-table tbody td {
+  background-color: white; /* Add solid white background to body cells */
+}
+
 
     .content-table tbody tr:nth-of-type(even) {
       background-color: #f3f3f3;
