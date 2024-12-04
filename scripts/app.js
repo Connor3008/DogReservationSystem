@@ -90,12 +90,18 @@ app.post('/login', (req, res) => {
     }
 
     if (!row) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      // Check for the admin user
+      if (username === 'admin' && password === 'adminpassword') {
+        return res.status(200).json({ message: `Welcome, Admin!`, role: 'admin' });
+      } else {
+        return res.status(401).json({ message: 'Invalid credentials' });
+      }
     }
 
     res.status(200).json({ message: `Welcome, ${username}!`, role: row.role });
   });
 });
+
 
 // Root route
 app.get('/', (req, res) => {
@@ -107,3 +113,15 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+app.get('/reservations', (req, res) => {
+  db.all('SELECT * FROM reservations', [], (err, rows) => {
+    if (err) {
+      console.error('Error fetching reservations:', err);
+      return res.status(500).json({ message: 'Server error' });
+    }
+
+    res.status(200).json({ reservations: rows });
+  });
+});
+

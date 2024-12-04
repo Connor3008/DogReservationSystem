@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="admin/admin.css">
+</head>
+<body>
+  <!-- Admin Page -->
+  <div class="container" id="adminPage">
+    <h2>Admin Dashboard</h2>
+
+    <!-- Logout Button -->
+    <button class="logout-button">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+
+    <input type="text" id="searchBar" placeholder="Search reservations by dog name or owner" oninput="filterReservations()">
+    
+    <table id="reservationsTable">
+      <thead>
+        <tr>
+          <th>Confirmation #</th>
+          <th>Dog's Name</th>
+          <th>Owner's Name</th>
+          <th>Breed</th>
+          <th>Age</th>
+          <th>Special Requirements</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="reservationList">
+        <!-- Reservation rows will be added dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

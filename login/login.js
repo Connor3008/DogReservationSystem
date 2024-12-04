@@ -15,7 +15,6 @@ function login() {
     return;
   }
 
-  // Send login credentials to backend via POST request
   fetch('http://localhost:3000/login', {
     method: 'POST',
     headers: {
@@ -28,15 +27,15 @@ function login() {
     if (data.message === "Invalid credentials") {
       alert("Incorrect username or password.");
     } else {
-      // On successful login
-      userRole = data.role;
-      alert(`Logged in as ${userRole.charAt(0).toUpperCase() + userRole.slice(1)}`);
+      const userRole = data.role;
 
-      // Save user role in local storage
-      localStorage.setItem("loggedInUserRole", JSON.stringify({usernname: username, role: data.role}));
-
-      // Redirect to the reservation page
-      window.location.href = "../index.html";
+      if (userRole === 'admin') {
+        localStorage.setItem("loggedInUserRole", JSON.stringify({ username, role: 'admin' }));
+        window.location.href = "../admin.html";  // Redirect to admin page
+      } else {
+        localStorage.setItem("loggedInUserRole", JSON.stringify({ username, role: 'user' }));
+        window.location.href = "../index.html";
+      }
     }
   })
   .catch(error => {

@@ -1,0 +1,102 @@
+/* General Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a#current {
+  color: #f4b400;
+}
+
+.logout-button {
+  background-color: #f4b400;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #f4a400;
+}
+
+/* Container Styling for Admin Page */
+.container {
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Search Bar Styling */
+#searchBar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Table Styling */
+#reservationsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#reservationsTable th, #reservationsTable td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+#reservationsTable th {
+  background-color: #f4b400;
+  color: white;
+}
+
+/* Table Row Hover Effect */
+#reservationsTable tr:hover {
+  background-color: #f9f9f9;
+}
