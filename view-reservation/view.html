@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/45d9167e6e.js" crossorigin="anonymous"></script>
+  <title>View Reservations</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap');
+    body {
+      font-family: 'Maven Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+      padding-top: 80px; /* Add padding to avoid the navbar covering content */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full height */
+    }
+
+    .container {
+      width: 80%; /* Width of the content */
+      max-width: 1200px; /* Maximum width */
+      text-align: center;
+      margin-top: -20%;
+    }
+
+    /* Center table */
+    .content-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      min-width: 400px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      margin: 0 auto; /* Center the table */
+    }
+
+    .content-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .content-table th, .content-table td {
+      padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* Styling for Action Buttons inside the table */
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center; /* Center buttons within the cell */
+    }
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* Edit Button */
+    .edit-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .edit-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Delete Button */
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #e53935;
+    }
+
+    /* Check-in Button */
+    .checkin-btn {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    .checkin-btn:hover {
+      background-color: #1976D2;
+    }
+
+    /* Checkout Button */
+    .checkout-btn {
+      background-color: #FF9800;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .checkout-btn:hover {
+      background-color: #FB8C00;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 20px 0; /* Reduce padding for better alignment */
+      z-index: 1000;
+      display: flex;
+      justify-content: center; /* Center contents horizontally */
+      align-items: center; /* Center contents vertically */
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px; /* Add spacing between items */
+      align-items: center; /* Align items vertically */
+    }
+
+    .navbar li {
+      margin: 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 15px; /* Add padding for better click area */
+    }
+
+    .navbar a:hover {
+      color: #f4b400;
+    }
+
+    .navbar a#current {
+      color: orange;
+    }
+
+    .logout-button {
+      position: absolute;
+      right: 20px; /* Space from the edge of the screen */
+      top: 50%;
+      transform: translateY(-50%); /* Vertically center in navbar */
+      background-color: #ff4d4d;
+      font-family: 'Maven pro', sans-serif;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../profile/profile.html">Profile</a></li>
+            <li><a href="view.html" id="current">View Reservations</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <button class="logout-button">
+          <i class="fa-solid fa-right-from-bracket">Logout</i>
+        </button>
+    </nav>
+
+    <div class="container">
+      <h1>Your Reservations</h1>
+
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Confirmation Number</th>
+            <th>Dog Name</th>
+            <th>Owner Name</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Special Requirements</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="reservationList">
+          <!-- Reservation rows will be populated here -->
+        </tbody>
+      </table>
+
+      <!-- Checkout Button -->
+      <button class="checkout-btn" onclick="checkoutReservations()">Checkout</button>
+    </div>
+
+    <script src="view.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://kit.fontawesome.com/45d9167e6e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="profile/profile.html" id = "current">Profile</a></li>
+        <li><a href="../view-reservation/view.html">View Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+    <button class="logout-button">
+      <i class="fa-solid fa-right-from-bracket">Logout</i>
+    </button>
+</nav>
+
+
+    <!-- Profile Section -->
+    <section>
+        <div class="profile py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div style="height: 70px"></div>
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent text-center">
+                                <img class="profile_img" src="../images/user.jpeg" alt="Profile Picture">
+                                <h5>Jane Doe</h5>
+                                <h7>User Profile</h7>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0"><strong class="pr-1">Dog Name:</strong> Alex</p>
+                                <p class="mb-0"><strong class="pr-1">Favorite Treat:</strong> Bacon</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div style="height: 70px"></div>
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0"><i class="fa fa-user"></i> Personal Information</h3>
+                                <br>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%">Address:</th>
+                                        <td width="50%">Martin Luther Boulevard</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Phone No.:</th>
+                                        <td width="50%">09264064542</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Email:</th>
+                                        <td width="50%">unknown1919@gmail.com</td>
+                                    </tr>
+                                </table>
+
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-transparent border-0">
+                                        <h3 class="mb-0"><i class="fa fa-bars"></i> About Me</h3>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="profile.js"></script>
+</body>
+</html>
