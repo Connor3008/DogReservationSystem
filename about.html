@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/45d9167e6e.js" crossorigin="anonymous"></script>
+  <title>About Us</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap');
+
+    body {
+      font-family: 'Maven Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f1f1f1, #eaeaea);
+      color: #333;
+      padding-top: 80px;
+        background-image : url(../images/dogbackground.jpeg);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 110px;
+      padding: 40px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #009879;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #009879;
+      font-weight: bold;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 20px 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .navbar li {
+      margin: 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 15px;
+    }
+
+    .navbar a:hover {
+      color: #f4b400;
+    }
+
+    .navbar a#current {
+      color: orange;
+    }
+
+    .logout-button {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ff4d4d;
+      font-family: 'Maven pro', sans-serif;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile/profile.html">Profile</a></li>
+      <li><a href="view-reservation/view.html">View Reservations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html" id="current">About</a></li>
+    </ul>
+    <button class="logout-button">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+  </nav>
+
+  <div class="container">
+    <h1>About Us</h1>
+    <p>
+      Welcome to <span class="highlight">Paws Paradise</span>, where every pup's stay is a tail-wagging delight!
+    </p>
+    <p>
+      At Paws Paradise, we understand that your furry friends are part of your family, and we are dedicated to
+      providing a safe, comfortable, and enjoyable <span class="highlight">home-away-from-home</span> for them.
+    </p>
+    <p>
+      Our state-of-the-art dog hotel offers <span class="highlight">premium accommodations</span>, personalized care,
+      and endless fun to ensure your dog has the ultimate experience while you're away.
+    </p>
+    <p>
+      Join the <span class="highlight">Paws Paradise</span> family today—because your dog deserves the best!
+    </p>
+  </div>
+</body>
+</html>
