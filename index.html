@@ -11,9 +11,15 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <ul>
+<<<<<<< HEAD
       <li><a href= "index.html" id="current">Home</a></li>
       <li><a href="profile/profile.html">Profile</a></li>
       <li><a href="view-reservation/view.html">View Reservations</a></li>
+=======
+      <li><a href="index.html" id="current">Home</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#view_reservations">View Reservations</a></li>
+>>>>>>> main
       <li><a href="#contact">Contact</a></li>
       <li><a href="#about">About</a></li>
     </ul>
@@ -21,8 +27,6 @@
       <i class="fa-solid fa-right-from-bracket">Logout</i>
     </button>
   </nav>
-
-  
 
   <!-- Reservation Page -->
   <div class="container" id="reservationPage">
@@ -51,7 +55,8 @@
       <label for="date">Reservation Date</label>
       <input type="date" id="date">
     </div>
-    <button class="btn" onclick="addReservation()">Add Reservation</button>
+    <!-- Button changes from Add to Update when editing -->
+    <button class="btn" id="addReservationButton" onclick="addReservation()">Add Reservation</button>
     
     <div id="confirmationDisplay" class="confirmation-display" style="display: none;"></div>
     
@@ -65,6 +70,7 @@
           <th>Age</th>
           <th>Special Requirements</th>
           <th>Date</th>
+          <th>Actions</th> <!-- Column for Edit Button -->
         </tr>
       </thead>
       <tbody id="reservationList">
@@ -73,6 +79,6 @@
     </table>
   </div>
 
-<script src="reservation/reservation.js"></script>
+  <script src="reservation/reservation.js"></script>
 </body>
 </html>
