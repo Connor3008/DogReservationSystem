@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap');
+/* General Body Styling */
+body {
+    /* background-image: url('../images'); */
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 20px 0; /* Reduce padding for better alignment */
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Add spacing between items */
+    align-items: center; /* Align items vertically */
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px; /* Add padding for better click area */
+}
+
+.navbar a:hover {
+    color: #f4b400;
+}
+
+.navbar a#current {
+    color: orange;
+}
+
+.logout-button {
+    position: absolute;
+    right: 20px; /* Space from the edge of the screen */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center in navbar */
+    background-color: #ff4d4d;
+    font-family: 'Maven pro', sans-serif;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+.logout-button:hover {
+    background-color: #ff3333;
+}
+
+
+/* Profile Card Styling */
+.profile .card {
+    border-radius: 10px;
+}
+
+.profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 8px solid #5aa8d9;
+    border-radius: 50%;
+}
+
+.profile .card h3 {
+    font-size: 20px;
+    font-weight: 70px;
+}
+
+.profile .card p {
+    font-size: 16px;
+    color: #000;
+}
+
+.profile .table th,
+.profile .table td {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+}
+
+/* Section Padding */
+section {
+    padding: 4em;
+}

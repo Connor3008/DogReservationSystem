@@ -6,9 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('../images/dogbackground.jpeg') no-repeat center center fixed;
+    background: url('../images/cartoon-dog-qyxotpe23ipq9dir.jpg') no-repeat center center fixed;
     background-size: cover;
-    backdrop-filter: blur(5px);
   }
   
   .container {

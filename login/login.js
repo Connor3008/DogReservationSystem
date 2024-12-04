@@ -33,7 +33,7 @@ function login() {
       alert(`Logged in as ${userRole.charAt(0).toUpperCase() + userRole.slice(1)}`);
 
       // Save user role in local storage
-      localStorage.setItem("loggedInUserRole", JSON.stringify({usernname: username, role: data.role}));
+      localStorage.setItem("loggedInUserRole", JSON.stringify({username: username, role: data.role}));
 
       // Redirect to the reservation page
       window.location.href = "../index.html";
