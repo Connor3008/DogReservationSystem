@@ -1,6 +1,9 @@
-const reservations = [];
+let reservations = [];
+let editIndex = null; // Store the index of the reservation being edited
+
 
 // Function to add a reservation
+
 function addReservation() {
   const dogName = document.getElementById("dogName").value;
   const ownerName = document.getElementById("ownerName").value;
@@ -9,11 +12,14 @@ function addReservation() {
   const specialReq = document.getElementById("specialReq").value;
   const date = document.getElementById("date").value;
 
+
   // Validate required fields
+
   if (!dogName || !ownerName || !breed || !age || !date) {
     alert("Please fill in all required fields.");
     return;
   }
+
 
   // Check if age is a valid number
   if (isNaN(age) || age <= 0) {
@@ -51,6 +57,7 @@ function addReservation() {
   document.getElementById("age").value = "";
   document.getElementById("specialReq").value = "";
   document.getElementById("date").value = "";
+
 }
 
 // Function to display existing reservations (fetch from backend)
@@ -87,7 +94,6 @@ function displayReservations() {
 
 // Logout functionality
 const logoutButton = document.querySelector(".logout-button");
-
 if (logoutButton) {
   logoutButton.addEventListener("click", () => {
     window.location.href = "login/login.html"; // Adjust this path based on your project structure
