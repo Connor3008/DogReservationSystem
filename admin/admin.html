@@ -121,7 +121,6 @@
           <th>Age</th>
           <th>Special Requirements</th>
           <th>Date</th>
-          <th>Actions</th>
         </tr>
       </thead>
       <tbody id="reservationList">
@@ -145,7 +144,7 @@
           reservationList.innerHTML = ''; // Clear existing reservations
 
           if (data.length === 0) {
-            reservationList.innerHTML = "<tr><td colspan='8'>No reservations found.</td></tr>";
+            reservationList.innerHTML = "<tr><td colspan='7'>No reservations found.</td></tr>";
           } else {
             data.forEach((reservation) => {
               const row = document.createElement("tr");
@@ -157,7 +156,6 @@
                 <td>${reservation.age}</td>
                 <td>${reservation.special_requirements || 'None'}</td>
                 <td>${reservation.date}</td>
-                <td><button>Checkout</button></td>
               `;
               reservationList.appendChild(row);
             });
