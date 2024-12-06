@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/45d9167e6e.js" crossorigin="anonymous"></script>
+  <title>Admin Dashboard</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Maven+Pro:wght@400..900&display=swap');
+    body {
+      font-family: 'Maven Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+      background-image: url(../images/dogbackground.jpeg);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    #searchInput {
+      padding: 8px;
+      font-size: 16px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .search-container button {
+      padding: 8px 12px;
+      background-color: #009879;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #007a5e;
+    }
+
+    .content-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      min-width: 400px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      margin: 0 auto;
+    }
+
+    .content-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .content-table th, .content-table td {
+      padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr:hover {
+      background-color: #f2f2f2;
+    }
+
+    .content-table tbody td {
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search by Dog Name">
+      <button onclick="searchReservations()">Search</button>
+    </div>
+
+    <!-- Reservations Table -->
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Confirmation Number</th>
+          <th>Dog Name</th>
+          <th>Owner Name</th>
+          <th>Breed</th>
+          <th>Age</th>
+          <th>Special Requirements</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="reservationList">
+        <!-- Reservation rows will be populated here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="admin.js"></script>
+  <script>
+    // Fetch all reservations from the API when the page loads
+    window.onload = () => {
+      fetchReservations();
+    };
+
+    function fetchReservations() {
+      fetch('http://localhost:3000/reservations')
+        .then(response => response.json())
+        .then(data => {
+          const reservationList = document.getElementById("reservationList");
+          reservationList.innerHTML = ''; // Clear existing reservations
+
+          if (data.length === 0) {
+            reservationList.innerHTML = "<tr><td colspan='8'>No reservations found.</td></tr>";
+          } else {
+            data.forEach((reservation) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                <td>${reservation.confirmation_number}</td>
+                <td>${reservation.dog_name}</td>
+                <td>${reservation.owner_name}</td>
+                <td>${reservation.breed}</td>
+                <td>${reservation.age}</td>
+                <td>${reservation.special_requirements || 'None'}</td>
+                <td>${reservation.date}</td>
+                <td><button>Checkout</button></td>
+              `;
+              reservationList.appendChild(row);
+            });
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching reservations:", error);
+          alert("An error occurred while loading reservations.");
+        });
+    }
+
+    // Search reservations by dog name
+    function searchReservations() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#reservationList tr');
+
+      rows.forEach(row => {
+        const dogNameCell = row.querySelector('td:nth-child(2)');
+        const dogName = dogNameCell ? dogNameCell.textContent.toLowerCase() : '';
+
+        if (dogName.includes(input)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
