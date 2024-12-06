@@ -97,6 +97,25 @@
     .content-table tbody td {
       background-color: white;
     }
+
+    /* Logout Button Styles */
+    .logout-button {
+      position: absolute;
+      right: 20px; /* Space from the edge of the screen */
+      top: 20px; /* Position it near the top */
+      background-color: #ff4d4d;
+      font-family: 'Maven Pro', sans-serif;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #ff3333;
+    }
   </style>
 </head>
 <body>
@@ -129,6 +148,11 @@
     </table>
   </div>
 
+  <!-- Logout Button -->
+  <button class="logout-button" onclick="logoutAdmin()">
+    <i class="fa-solid fa-right-from-bracket"></i> Logout
+  </button>
+
   <script src="admin.js"></script>
   <script>
     // Fetch all reservations from the API when the page loads
@@ -148,7 +172,7 @@
           } else {
             data.forEach((reservation) => {
               const row = document.createElement("tr");
-              row.innerHTML = `
+              row.innerHTML = `  
                 <td>${reservation.confirmation_number}</td>
                 <td>${reservation.dog_name}</td>
                 <td>${reservation.owner_name}</td>
@@ -182,6 +206,11 @@
           row.style.display = 'none';
         }
       });
+    }
+
+    // Logout functionality
+    function logoutAdmin() {
+      window.location.href = "login/login.html"; // Adjust the path based on your project structure
     }
   </script>
 </body>
