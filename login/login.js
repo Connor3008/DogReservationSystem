@@ -34,9 +34,13 @@ function login() {
 
       // Save user role in local storage
       localStorage.setItem("loggedInUserRole", JSON.stringify({username: username, role: data.role}));
-
+      // Check for Admin role
+      if (userRole === 'admin') {
+        window.location.href = "../admin/admin.html"
+      } else {
       // Redirect to the reservation page
       window.location.href = "../index.html";
+      }
     }
   })
   .catch(error => {

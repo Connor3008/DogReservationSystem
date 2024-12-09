@@ -106,6 +106,11 @@ app.post('/login', (req, res) => {
     return res.status(400).json({ message: 'Username and password are required.' });
   }
 
+  // Admin login check
+  if (username === 'admin' && password === 'adminpassword') {
+    return res.status(200).json({ message: 'Welcome, Admin!', role: 'admin' });
+  }
+
   // Check if the user exists in the database
   db.get('SELECT * FROM users WHERE username = ?', [username], async (err, row) => {
     if (err) {
@@ -132,6 +137,7 @@ app.post('/login', (req, res) => {
     }
   });
 });
+
 
 // POST route for adding a reservation
 app.post('/reservations', (req, res) => {
@@ -255,4 +261,28 @@ app.get('/', (req, res) => {
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+});
+
+// GET route for searching reservations by confirmation number or owner name
+app.get('/reservations/search', (req, res) => {
+  const { query } = req.query;
+
+  if (!query) {
+    return res.status(400).json({ message: 'Query parameter is required.' });
+  }
+
+  const queryStr = `%${query}%`; // Using wildcard for partial match
+
+  db.all(
+    'SELECT * FROM reservations WHERE confirmation_number LIKE ? OR owner_name LIKE ?',
+    [queryStr, queryStr],
+    (err, rows) => {
+      if (err) {
+        console.error('Error querying the database:', err);
+        return res.status(500).json({ message: 'Server error' });
+      }
+
+      res.status(200).json(rows);
+    }
+  );
 });
