@@ -7,7 +7,7 @@ function fetchReservations() {
       reservationList.innerHTML = ""; // Clear existing list
 
       if (data.length === 0) {
-        reservationList.innerHTML = `<tr><td colspan="8">No reservations found.</td></tr>`;
+        reservationList.innerHTML = '<tr><td colspan="8">No reservations found.</td></tr>';
         return;
       }
 
@@ -91,23 +91,33 @@ function deleteReservation(id) {
     });
 }
 
+// Check In Reservation
+function checkInReservation(id) {
+  // Simulate successful check-in
+  alert(`You have successfully checked in your pet with reservation ID: ${id}`);
+
+  // Replace Check In button with Check Out button
+  const row = document.getElementById(`reservation-${id}`);
+  const actionButtons = row.querySelector(".action-buttons");
+  actionButtons.innerHTML = `
+    <button class="edit-btn" onclick="editReservation(${id})">Edit</button>
+    <button class="delete-btn" onclick="deleteReservation(${id})">Delete</button>
+    <button class="checkout-btn" onclick="checkoutReservation(${id})">Check Out</button>
+  `;
+}
+
+// Check Out Reservation
+function checkoutReservation(id) {
+  window.location.href = `../payment/payment.html?reservationId=${id}`;
+}
+
 // Fetch reservations on page load
 document.addEventListener("DOMContentLoaded", fetchReservations);
 
 // Logout functionality
 const logoutButton = document.querySelector(".logout-button");
-
 if (logoutButton) {
   logoutButton.addEventListener("click", () => {
     window.location.href = "../login/login.html"; // Adjust this path based on your project structure
   });
-}
-
-// Check In Reservation (placeholder functionality)
-function checkInReservation(id) {
-  alert(`You have successfully checked in your pet with reservation ID: ${id}`);
-}
-
-function checkoutReservations(id){
-  window.location.href = `../payment/payment.html?reservationId=${id}`;
 }
