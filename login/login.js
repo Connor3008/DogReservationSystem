@@ -88,7 +88,7 @@ function register() {
       errorMessage.textContent = "Username already exists. Choose another.";
       errorMessage.style.display = "block";
     } else {
-      alert("Registration successful! Please log in.");
+      window.alert("Registration successful! Please log in.");
       goToLogin();
     }
   })
