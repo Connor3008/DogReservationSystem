@@ -125,29 +125,31 @@
     }
 
     /* Check-in Button */
-    .checkin-btn {
-      background-color: #2196F3;
-      color: white;
-    }
+.checkin-btn {
+  background-color: #2196F3;
+  color: white;
+  padding: 5px 10px; 
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.checkin-btn:hover {
+  background-color: #1976D2;
+}
 
-    .checkin-btn:hover {
-      background-color: #1976D2;
-    }
+/* Checkout Button */
+.checkout-btn {
+  background-color: #FF9800;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px; 
+  cursor: pointer;
+}
+.checkout-btn:hover {
+  background-color: #FF9800; 
+}
 
-    /* Checkout Button */
-    .checkout-btn {
-      background-color: #FF9800;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    .checkout-btn:hover {
-      background-color: #FB8C00;
-    }
 
     /* Navbar styling */
     .navbar {
@@ -248,8 +250,6 @@
         </tbody>
       </table>
 
-      <!-- Checkout Button -->
-      <button class="checkout-btn" onclick="checkoutReservations()">Checkout</button>
     </div>
 
     <script src="view.js"></script>
